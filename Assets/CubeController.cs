@@ -15,27 +15,24 @@ public class CubeController : MonoBehaviour {
 	void Start(){
 	}
 		
-	void OnCollisonEnter2D(Collision2D other){
+	void OnCollisionEnter2D(Collision2D other){
 		Debug.Log (other.gameObject.tag);
 
-		if (gameObject.tag == "Cube") {
+		if (other.gameObject.tag == "Cube") {
 			GetComponent<AudioSource>().Play();
 
 			//audio.Play();
 			//GetComponent<AudioSource> ();
 		}
-		//if (other.gameObject.tag == "Ground") {
-		//	GetComponent<AudioSource>();
+		if (other.gameObject.tag == "Ground") {
+			GetComponent<AudioSource>().Play();
 
 			//audio.Play();
 			//GetComponent<AudioSource> ();
-		//}
-		//if (other.gameObject.tag != "Unitytyan") {
-		//	GetComponent<AudioSource> ().volume = 0;
-		//}
-		//if (other.gameObject.tag != "Ground") {
-		//	GetComponent<AudioSource> ().volume = 0;
-		//}
+		}
+		if (other.gameObject.tag == "Unitytyan") {
+			GetComponent<AudioSource> ().volume = 0;
+		}
 	}
 
 
